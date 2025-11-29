@@ -13,7 +13,7 @@ class Config(pydantic_settings.BaseSettings):
     # Общие параметры
     DEVICE_NAME: str = 'Pixel 6'
     udid: str = ''
-    timeout: float = 10.0
+    timeout: float = 15.0
     remote_url: str = ''
     BROWSER_NAME: str = 'chrome'
 
