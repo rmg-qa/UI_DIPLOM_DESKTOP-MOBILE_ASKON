@@ -15,7 +15,7 @@ from pages.main_page_desktop import MainPageDesktop
 def test_get_first_screen(browser_settings_desktop):
     with allure.step('Открытие основной страницы и проверка элемента на первом экране'):
         browser.open(data.URL)
-        browser.element(LocatorsMainPage.catalog).should(have.text('Катал'))
+        browser.element(LocatorsMainPage.catalog).should(have.text('Каталог'))
 
 
 @allure.epic('Главная страница')
