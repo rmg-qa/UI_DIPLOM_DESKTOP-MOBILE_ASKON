@@ -9,7 +9,7 @@ from pages.main_page_desktop import MainPageDesktop
 
 
 @allure.epic('Главная страница')
-@allure.title('Открытие главной страницы интернет-магазина "Askona"')
+@allure.title('Переход на главную страницу интернет-магазина "Askona"')
 @allure.tag('web-desktop')
 @allure.severity(allure.severity_level.CRITICAL)
 def test_get_first_screen(browser_settings_desktop):
