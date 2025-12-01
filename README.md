@@ -28,7 +28,6 @@
    <code><img width="5%" title="Pytest" src="images/pytest.png"></code>
    <code><img width="5%" title="Appium" src="images/appium.png"></code>
    <code><img width="5%" title="Browserstack" src="images/browserstack.png"></code>
-   <code><img width="5%" title="Selenoid" src="images/selenoid.png"></code>
    <code><img width="5%" title="Jenkins" src="images/jenkins.png"></code>
    <code><img width="5%" title="Allure Report" src="images/allure_report.png"></code>
    <code><img width="5%" title="Allure TestOps" src="images/allure_testops.png"></code>
