@@ -45,7 +45,7 @@
 * `Appium`: фреймворк для автоматизации тестирования мобильной версии сайта;  
 * `Browserstack`: облачная платформа для удаленного запуска мобильных автотестов.  
 * `Jenkins`: инструмент CI/CD - с помощью этого инструмента реализован удаленный запуск автотестов, отправка уведомлений в Telegram, интеграция с TMS;  
-* `ТестОпс`: TMS-платформа для управления тестированием программного обеспечения. Реализована интеграция с Jira;  
+* `ТестОпс`: TMS-платформа для управления тестированием программного обеспечения. Есть совмещение ручного теста и автотестов в одной системе. Реализована интеграция с Jira;  
 * `Jira`: комплексная система управления проектами;  
 * `Selenoid`: запускает браузер с тестами в контейнерах Docker. Запись видео автотеста происходит с помощью этого инструмента;  
 * `Allure Report`: собирает графический отчет о прохождении автотестов;  
@@ -105,3 +105,31 @@
 ![This is a image](images/allure-suites.png)
 
 
+##### Видео прохождение теста на мобильном устройстве
+![This is an image](images/test_add_item_in cart.gif)
+
+
+<!-- Allure TestOps -->
+
+### <img width="3%" title="Allure TestOps" src="images/allure_testops.png"> Интеграция с Allure TestOps
+
+### [Dashboard](https://allure.autotests.cloud/project/5023/dashboards)
+
+![This is an image](images/allure_testops_dash.png)
+![This is an image](images/run_manual_test.png)
+
+
+<!-- Jira -->
+
+### <img width="3%" title="Jira" src="images/jira.png"> Интеграция с Jira
+
+![This is an image](images/jira_1.png)
+![This is an image](images/jira_2.png)
+
+
+<!-- Telegram -->
+
+### <img width="3%" title="Telegram" src="images/tg.png"> Оповещения в Telegram
+##### После выполнения тестов, в Telegram bot приходит сообщение с графиком и информацией о тестовом прогоне.
+
+![Уведомление только тогда, когда тест падает. Настраивается в джобе Jenkins](images/notification fail tests.png)
