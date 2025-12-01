@@ -83,8 +83,15 @@
 * Для запуска всех автотестов выполните команду:<br>
    ```bash
    pytest tests
-   ```  
+   ```
+
 6. Выполнить запрос на формирование allure-отчета:
     ```bash
     allure serve allure-results
     ```
+
+<!-- Jenkins -->
+
+### <img width="3%" title="Jenkins" src="images/jenkins.png"> Запуск проекта в Jenkins
+
+### [Задача в jenkins](https://jenkins.autotests.cloud/job/UI_DIPLOM_DESKTOP_AND_MOBILE_ROMAN_GOROKHOVIK/)
