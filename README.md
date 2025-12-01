@@ -1,4 +1,4 @@
-# Проект Web (Desktop/Mobile) тестирования онлайн-магазина Askona
+# Дипломный проект тестирования веб версии онлайн-магазина Askona (Desktop/Mobile)
 > [Askona](https://www.askona.ru)
 
 ![Screenshot of a comment on a GitHub issue showing an image, added in the Markdown, of an Octocat smiling and raising a tentacle.](/images/first_screen_askona.png)
@@ -50,3 +50,32 @@
 * `Selenoid`: запускает браузер с тестами в контейнерах Docker. Запись видео автотеста происходит с помощью этого инструмента;  
 * `Allure Report`: собирает графический отчет о прохождении автотестов;  
 * `BotFather`: настраиваемый бот в Telegram - с его помощью результаты прогона автотестов присылаются в Telegram в виде небольшого мини-отчета. 
+
+### Локальный запуск UI автотестов (Desktop/Mobile)
+
+1. Скачать проект и открыть в Pycharm   
+2. Создайте следующие файлы:
+   * `.env`, `.env.bstack`, `.env.local_emulator`, `.env.local_real` в зависимости от цели, заполните параметры в .env файлах актуальными данными.
+   * Пример заполнения параметров указан в файле с расширением `.env.example`
+3. Создайте и активируйте виртуальное окружение
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   ```
+4. Установите зависимости с помощью pip
+   ```bash
+   pip install -r requirements.txt
+   ```
+5. Для локального запуска автотестов необходимо выполнить команду в терминале:
+    * Для десктопной версии браузера:<br>
+    ```bash
+    pytest tests/ui_desktop
+    ```
+    * Для мобильной версии браузера:<br>
+    ```bash
+    pytest tests/ui_mobile
+    ```
+   * Запуск всех автотестов:<br>
+    ```bash
+    pytest tests
+    ```
