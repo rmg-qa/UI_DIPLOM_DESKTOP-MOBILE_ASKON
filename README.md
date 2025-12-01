@@ -106,8 +106,8 @@
 
 
 ##### Видео прохождение теста на мобильном устройстве
-![This is an image](images/test_add_item_in cart.gif)
 
+![Видео запуска мобильного автотеста](images/test_add_item_in cart.gif)
 
 <!-- Allure TestOps -->
 
