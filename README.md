@@ -92,7 +92,7 @@
 <!-- Jenkins -->
 
 ### <img width="3%" title="Jenkins" src="images/jenkins.png"> Запуск проекта в Jenkins
-##### В конфигурациях джобы Jenkins реализованы параметры запуска автотестов с возможностью выбора: только дестоп, только мобильные, или запуск всех автотестов сразу.
+##### В конфигурациях джобы реализованы параметры запуска автотестов с возможностью выбора: только дестоп, только мобильные, или запуск всех автотестов сразу.
 ![This is a image](images/job_jenkins.png)
 ### [Задача в jenkins](https://jenkins.autotests.cloud/job/UI_DIPLOM_DESKTOP_AND_MOBILE_ROMAN_GOROKHOVIK/)
 
