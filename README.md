@@ -75,7 +75,17 @@
     ```bash
     pytest tests/ui_mobile
     ```
-   * для запуска всех автотестов:<br>
+   _Параметр запуска CONTEXT в мобильных автотестах_:  
+   * ```CONTEXT="bstack" pytest tests/ui_mobile``` - запуск автотестов в облачной платформе Browserstack;  
+   * ```CONTEXT="local_emulator" pytest tests/ui_mobile``` - запуск автотестов в эмуляторе Android Studio;  
+   * ```CONTEXT="local_real" pytest tests/ui_mobile``` - запуск автотестов на реальном устройстве.<br>
+<br>
+* Для запуска всех автотестов выполните команду:<br>
+   ```bash
+   pytest tests
+   ```
+6. Выполнить запрос на формирование allure-отчета:
     ```bash
-    pytest tests
+    allure serve allure-results
     ```
+
