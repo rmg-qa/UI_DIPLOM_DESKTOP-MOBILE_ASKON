@@ -2,6 +2,7 @@ import allure
 import requests
 import dotenv
 import os
+from selene import browser
 
 
 def attach_bstack_video(session_id, version_driver):
@@ -22,4 +23,20 @@ def attach_bstack_video(session_id, version_driver):
         '</body></html>',
         name='video recording',
         attachment_type=allure.attachment_type.HTML,
+    )
+
+
+def attach_bstack_screenshot():
+    allure.attach(
+        browser.driver.get_screenshot_as_png(),
+        name='screenshot',
+        attachment_type=allure.attachment_type.PNG,
+    )
+
+
+def attach_bstack_page_source():
+    allure.attach(
+        browser.driver.page_source,
+        name='screen xml dump',
+        attachment_type=allure.attachment_type.XML,
     )

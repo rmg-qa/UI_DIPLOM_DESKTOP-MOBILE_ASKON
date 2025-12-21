@@ -3,9 +3,8 @@ import pytest
 import allure_commons
 from appium.options.android import UiAutomator2Options
 from selene import browser
-
 import utils.mobile_attach_result
-from config_mobile import config
+from config.config_mobile import config
 from appium import webdriver
 import dotenv
 
@@ -50,23 +49,11 @@ def mobile_management():
             options=options
         )
 
-    with allure.step('open browser'):
-        browser.driver.get('https://www.askona.ru/')
-
     yield
 
     # Attachments после теста
-    allure.attach(
-        browser.driver.get_screenshot_as_png(),
-        name='screenshot',
-        attachment_type=allure.attachment_type.PNG,
-    )
-
-    allure.attach(
-        browser.driver.page_source,
-        name='screen xml dump',
-        attachment_type=allure.attachment_type.XML,
-    )
+    utils.mobile_attach_result.attach_bstack_screenshot()
+    utils.mobile_attach_result.attach_bstack_page_source()
 
     session_id = browser.driver.session_id
     if config.context == 'bstack':

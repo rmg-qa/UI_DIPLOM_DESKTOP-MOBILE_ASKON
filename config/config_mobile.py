@@ -1,5 +1,6 @@
 import os
 from typing import Literal
+
 import dotenv
 import pydantic_settings
 
@@ -8,7 +9,8 @@ dotenv.load_dotenv()
 
 
 class Config(pydantic_settings.BaseSettings):
-    context: Literal['local_emulator', 'local_real', 'bstack'] = 'local_emulator'  # по дефолту тесты запускаются на bstack
+    context: Literal[
+        'local_emulator', 'local_real', 'bstack'] = 'local_emulator'  # по дефолту тесты запускаются на bstack
 
     # Общие параметры
     DEVICE_NAME: str = 'Pixel 6'
