@@ -9,29 +9,13 @@ from utils import desktop_attach_allure
 from dotenv import load_dotenv
 
 
-def pytest_addoption(parser):
-    parser.addoption(
-        '--browser',
-        help='Браузер, в котором будут запущены тесты',
-        choices=['firefox', 'chrome'],
-        default='chrome'
-    )
-    parser.addoption(
-        '--browser_version',
-        default='128.0',
-    )
-
-
 @pytest.fixture(scope='session', autouse=True)
 def load_env():
     load_dotenv()
 
 
 @pytest.fixture(scope='function')
-def setup_browser(request):
-    browser_name = request.config.getoption('--browser')
-    browser_version = request.config.getoption('--browser_version')
-
+def setup_browser():
     browser.config.window_width = 1920
     browser.config.window_height = 1080
     browser.config.timeout = 60
@@ -39,20 +23,20 @@ def setup_browser(request):
     options = Options()
     options.page_load_strategy = 'eager'
 
-    # Также можно добавить другие опции для решения проблемы с askona.ru
+    # Также можно добавить другие опции для решения проблемы таймаута в селеноиде
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
     options.add_argument('--disable-web-security')
     options.add_argument('--allow-insecure-localhost')
 
     selenoid_capabilities = {
-        "browserName": browser_name,
-        "browserVersion": browser_version,
+        "browserName": 'chrome',
+        "browserVersion": '128.0',
         "selenoid:options": {
             "enableVNC": True,
             "enableVideo": True
         },
-        "acceptInsecureCerts": True  # Важно для SSL проблем!
+        "acceptInsecureCerts": True  # доп настройка для решения проблемы таймаута в селеноиде
     }
 
     options.capabilities.update(selenoid_capabilities)
