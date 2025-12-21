@@ -26,7 +26,7 @@ def test_showing_products_in_the_pillow_picker(mobile_management):
 @allure.title('Добавляем в корзину товар "Матрас-Односпальный" неавторизованным пользователем')
 @allure.tag('web-mobile')
 @allure.severity(allure.severity_level.CRITICAL)
-def test_add_in_cart_new_year_tree(mobile_management):
+def test_add_to_cart_mattresses_single(mobile_management):
     main_page_mobile.open_a_page()
     main_page_mobile.choosing_a_standard_location()
     main_page_mobile.choosing_a_mattress_category_single()

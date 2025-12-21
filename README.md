@@ -109,7 +109,7 @@
 
 ##### Видео прохождение теста на мобильном устройстве
 
-![Видео запуска мобильного автотеста!](images/test_add_item_in_cart.gif)
+![Видео запуска мобильного автотеста!](images/test_add_to_cart_mattresses_single)
 
 <!-- Allure TestOps -->
 
