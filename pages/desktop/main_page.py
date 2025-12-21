@@ -34,7 +34,7 @@ class MainPageDesktop:
 
     @allure.step('Добавление 1 товара в корзину')
     def adding_1_product_to_the_cart(self):
-        browser.element(".//div[contains(@class, 'ProductGrid_gridI')][5]//child::button[text()='В корзину']").click()
+        browser.element(".//div[contains(@class, 'ProductGrid_gridI')][1]//child::button[text()='В корзину']").click()
         button_in_popup = ".//button[contains(@class, 'AddToCardPopupMain')]"
         try:
             browser.element(button_in_popup).should(be.visible)
