@@ -19,15 +19,16 @@ def setup_browser():
     browser.config.window_width = 1920
     browser.config.window_height = 1080
     browser.config.timeout = 60
-
+    browser.config._save_screenshot_on_failure = False
+    browser.config._save_page_source_on_failure = False
     options = Options()
-    options.page_load_strategy = 'eager'
 
     # Также можно добавить другие опции для решения проблемы таймаута в селеноиде
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--ignore-ssl-errors')
     options.add_argument('--disable-web-security')
     options.add_argument('--allow-insecure-localhost')
+    options.add_argument('--disable-blink-features=AutomationControlled')
 
     selenoid_capabilities = {
         "browserName": 'chrome',
