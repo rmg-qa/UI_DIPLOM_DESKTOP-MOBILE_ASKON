@@ -3,7 +3,7 @@ from pages.mobile.main_page import main_page_mobile
 
 
 @allure.epic('Главная страница')
-@allure.title('Выбор определенного раздела/подраздела в меню-бургере')
+@allure.title('Выбор определенного раздела/подраздела товара в меню-бургере')
 @allure.tag('web-mobile')
 @allure.severity(allure.severity_level.NORMAL)
 def test_select_section_and_subsection_product_in_burger_menu(mobile_management):
