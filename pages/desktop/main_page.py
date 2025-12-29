@@ -32,6 +32,9 @@ class MainPageDesktop:
     PRICE_FILTER = './/div[@data-test-listing="Цена, ₽"]'
     SEARCH_RESULT_TITLE = './/h1[contains(@class, "TitleBlock")]'
     FIRST_SEARCH_RESULT = ".//div[contains(@class, 'ProductGrid_gridItem')][1]"
+    # локаторы фильтрации товаров
+    INPUT_MIN_PRICE = './/div[@data-test-listing="Цена, ₽"]//child::input[@data-view="min"]'
+    INPUT_MAX_PRICE = './/div[@data-test-listing="Цена, ₽"]//child::input[@data-view="max"]'
 
     @allure.step('Открытие страницы')
     def open_the_page(self):
@@ -80,8 +83,8 @@ class MainPageDesktop:
     def filtering_products_by_price(self, price_from, price_up_to):
         element = browser.driver.find_element(By.XPATH, MainPageDesktop.PRICE_FILTER)
         browser.driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element)
-        browser.element('.//div[@data-test-listing="Цена, ₽"]//child::input[@data-view="min"]').type(price_from)
-        browser.element('.//div[@data-test-listing="Цена, ₽"]//child::input[@data-view="max"]').type(price_up_to)
+        browser.element(MainPageDesktop.INPUT_MIN_PRICE).type(price_from)
+        browser.element(MainPageDesktop.INPUT_MAX_PRICE).type(price_up_to)
         time.sleep(5)  # запрос на фильтрацию происходит автоматически, ждем, когда прогрузится страница
 
     @allure.step('Проверка отображения цены первого товара после фильтрации')
