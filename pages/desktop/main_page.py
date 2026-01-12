@@ -40,8 +40,8 @@ class MainPageDesktop:
     def open_the_page(self):
         browser.open(url_main_page)
 
-    @allure.step('Ввод названия города и выбор результата поиска в хедере главной страницы')
-    def search_and_select_the_city_in_the_header(self, input_text):
+    @allure.step('Ввод названия города и выбор результата выдачи в хедере главной страницы')
+    def search_and_select_city_in_header(self, input_text):
         browser.element(MainPageDesktop.CITY_HEADER).click()
         browser.element(MainPageDesktop.CITY_SEARCH).type(input_text)
         browser.element(MainPageDesktop.FIRST_CITY_IN_LIST).click()
@@ -51,12 +51,12 @@ class MainPageDesktop:
         browser.element(MainPageDesktop.SALONS_LINK).click()
 
     @allure.step('Выбор страницы "Каталог тканей" через выпадающий список "Покупателям" в хедере главной страницы')
-    def go_to_the_fabric_catalog_page(self):
+    def go_to_the_fabrics_catalog_in_header(self):
         browser.element(MainPageDesktop.CUSTOMERS_MENU).click()
         browser.element(MainPageDesktop.FABRIC_LIBRARY_LINK).click()
 
     @allure.step('Поиск товара в главном поисковике')
-    def search_from_title_bar(self, input_text):
+    def search_product_from_title_bar(self, input_text):
         browser.element(MainPageDesktop.MAIN_SEARCH_INPUT).type(input_text).press_enter()
         browser.element(MainPageDesktop.FIRST_SEARCH_RESULT).should(be.visible)
 
@@ -74,7 +74,7 @@ class MainPageDesktop:
         browser.element(MainPageDesktop.BUTTON_ADD_TO_FAVOURITES).click()
 
     @allure.step('Переход на страницу FAQ через кнопку "Узнать" в футере страницы')
-    def opening_the_faq_page_via_the_main_page_footer(self):
+    def open_faq_page_in_footer(self):
         element = browser.driver.find_element(By.XPATH, MainPageDesktop.FOOTER_LEARN_LINK)
         browser.driver.execute_script("arguments[0].scrollIntoView();", element)
         browser.element(MainPageDesktop.FOOTER_LEARN_LINK).click()
@@ -88,7 +88,7 @@ class MainPageDesktop:
         time.sleep(5)  # запрос на фильтрацию происходит автоматически, ждем, когда прогрузится страница
 
     @allure.step('Проверка отображения цены первого товара после фильтрации')
-    def checking_the_display_of_the_filtered_product_by_price(self, price_from, price_up_to):
+    def checking_display_filtered_product_by_price(self, price_from, price_up_to):
         filtered_product_by_price = browser.element(
             MainPageDesktop.FIRST_SEARCH_RESULT + '//child::div[@data-test-listing="new_price"]')
         price_text = filtered_product_by_price.locate().text
@@ -96,11 +96,11 @@ class MainPageDesktop:
         assert price_up_to > price_value > price_from
 
     @allure.step('Проверка результата отображения выбранного города в хедере страницы')
-    def checking_the_display_of_the_selected_city(self, result):
+    def checking_display_selected_city(self, result):
         browser.element(MainPageDesktop.CITY_HEADER).should(have.text(result))
 
     @allure.step('Проверка отображения результата главного поисковика')
-    def title_bar_search_result(self, result):
+    def global_search_product_result(self, result):
         browser.element(
             MainPageDesktop.FIRST_SEARCH_RESULT + f"//child::div[text()='{result}']").should(
             be.visible)

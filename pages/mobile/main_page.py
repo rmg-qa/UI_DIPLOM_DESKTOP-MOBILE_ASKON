@@ -47,7 +47,7 @@ class MainPageMobile:
         browser.element(locator_subsection).click()
 
     @allure.step('Проверяем результат выбора категории и подкатегории')
-    def checking_the_product_category_and_subcategory_selection_results(self, title_result, product_category):
+    def results_selecting_product_category_and_subcategory(self, title_result, product_category):
         browser.element(MainPageMobile.TITLE_OF_THE_SELECTION_RESULT).should(have.text(title_result))
         browser.element(
             MainPageMobile.FIRST_PRODUCT_CARD + f"//child::div[contains(text(), '{product_category}')]").should(
@@ -70,24 +70,24 @@ class MainPageMobile:
         browser.element(MainPageMobile.PILLOW_RESULTS_CONTAINER).should(be.visible)
 
     @allure.step('Переходим внутрь товара и добавляем его в корзину')
-    def add_the_product_to_the_cart_from_an_internal_page(self):
+    def add_product_to_the_cart_from_internal_page(self):
         browser.element(MainPageMobile.THE_FIRST_ITEM_OF_THE_PRODUCT).click()
         browser.element(MainPageMobile.COOKIES_CONSENT_BTN).should(be.clickable).click()
         browser.element(MainPageMobile.ADD_TO_CART_BTN).should(be.clickable).click()
         browser.element(MainPageMobile.CART_ADD_SUCCESS_MSG).should(be.present)
 
     @allure.step('Удаляем товар из корзины')
-    def deleting_an_item_from_the_shopping_cart(self):
+    def deleting_product_from_cart(self):
         browser.element(MainPageMobile.REMOVE_FROM_CART_ICON).should(be.clickable).click()
         browser.element(MainPageMobile.DELETE_CONFIRMATION_BUTTON).should(be.visible).click()
         browser.element(MainPageMobile.CART_REMOVE_SUCCESS_MSG).should(be.present)
 
     @allure.step('Проверка отображения попапа об успешном добавлении товара в корзину')
-    def verify_cart_added_mobile(self):
+    def displaying_popup_after_adding_product_in_cart(self):
         browser.element(MainPageMobile.CART_ADD_SUCCESS_MSG).should(have.text('Товар добавлен в корзину'))
 
     @allure.step('Проверка отображения попапа об успешном удалении товара из корзины')
-    def verify_favorite_added_mobile(self):
+    def displaying_popup_after_adding_product_in_favourite(self):
         browser.element(MainPageMobile.CART_REMOVE_SUCCESS_MSG).should(be.present)
 
 

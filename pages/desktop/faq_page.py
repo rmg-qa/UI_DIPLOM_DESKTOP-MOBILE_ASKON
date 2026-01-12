@@ -12,7 +12,7 @@ class FAQPageDesktop:
     ORDER_INFO_TITLE = ".//h1[contains(@class,'information__wrapper_how_buy__title')]"
 
     @allure.step('Переход на вопрос: "Как оформить заказ в интернет магазине?"')
-    def going_to_the_question_how_place_a_order(self):
+    def go_question_how_place_a_order(self):
         element_main_question = browser.driver.find_element(By.XPATH, FAQPageDesktop.HOW_TO_ORDER_SECTION)
         browser.driver.execute_script("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});",
                                       element_main_question)
