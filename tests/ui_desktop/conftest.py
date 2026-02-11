@@ -44,7 +44,8 @@ def setup_browser():
     login = os.getenv('LOGIN_SELENOID')
     password = os.getenv('PASSWORD_SELENOID')
     driver = webdriver.Remote(
-        command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+        #command_executor=f"https://{login}:{password}@selenoid.autotests.cloud/wd/hub",
+        command_executor=f"http://127.0.0.1:4444/wd/hub",  # добавил ссылку на свой селеноид на ВМ
         options=options
     )
     driver.set_page_load_timeout(60)
